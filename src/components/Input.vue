@@ -11,16 +11,12 @@
     name: 'Input',
     props: {
       title: {
-        required: true
-      },
-      tooltip: {
-        required: true
-      },
-      value: {
         type: 'String'
       },
-      el: {
-        required: true,
+      tooltip: {
+        type: 'String'
+      },
+      value: {
         type: 'String'
       }
     },
@@ -29,11 +25,13 @@
         msg: 'I am a input'
       }
     },
-    render (createElement) {
+    mounted () {
       console.log('Props input', this.props)
-      return createElement(this.el, {
+    },
+    render (createElement) {
+      return createElement('input', {
         attrs: {
-          value: this.value
+          innerHtml: this.props.innerHtml
         }
       })
     }

@@ -1,20 +1,10 @@
-<!--<template>
-  <div id="app">
-  
-    <Hello></Hello>
-    <Input el="a"></Input>
-  </div>
-</template>-->
-
 <script>
-  import Hello from './components/Hello'
-  import Input from './components/Input'
-  
   export default {
     name: 'app',
     data () {
       return {
-        valid: true
+        valid: true,
+        root: 'div'
       }
     },
     props: {
@@ -28,39 +18,54 @@
         }
       }
     },
-    components: {
-      Hello,
-      Input
-    },
-    render (createElement) {
+    components: {},
+    render (h) {
       var childrens = []
+      var root = 'div'
       for (var key in this.schema) {
         if (this.schema.hasOwnProperty(key)) {
           var element = this.schema[key]
-          childrens.push(
-            createElement(element.type || 'a', {
-              props: element.properties
-            })
-          )
+          if (key === 'root') {
+            if (typeof element === 'string' || typeof element === 'object') {
+              root = element
+            }
+            continue
+          }
+          // console.log(element)
+          if (element.properties) {
+            if (!!element.properties.value && typeof element.properties.value === typeof []) {
+              childrens.push(
+                h(element.type, {
+                  attrs: element.properties,
+                  on: element.events
+                }, element.properties.value.map((item) => h('option', {
+                  attrs: { value: item }
+                }, item)))
+              )
+            } else {
+              childrens.push(
+                h(element.type, {
+                  attrs: element.properties,
+                  on: element.events
+                })
+              )
+            }
+          } else {
+            console.warn(`Render ${key} invalid`)
+          }
         }
       }
-  
-      return createElement(
-        'span', // tag name
-        childrens
-      )
+
+      if (typeof root === 'string') {
+        return h(
+          root, // tag name
+          childrens
+        )
+      } else {
+        return h(root.type, {
+          attrs: root
+        }, childrens)
+      }
     }
   }
 </script>
-
-
-<style>
-  #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
-  }
-</style>

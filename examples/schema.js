@@ -1,19 +1,29 @@
 module.exports = {
+  root: {
+    type: 'form',
+    method: 'post'
+  },
   name: {
-    type: 'Input',
+    type: 'input',
     properties: {
       title: 'Name',
       class: 'form-control',
       tooltip: 'Input your first name',
-      value: 'value default'
+      value: 'Julian',
+      innerHtml: 'hello',
+      placeholder: ''
     },
     events: {
-      onChange: function (value) {
+      change: function (value) {
         console.log('Element changed to ', value)
         return value === ''
       },
-      onClick: function (value) {
+      click: function (value) {
         console.log('Element clicked ', value)
+        return value
+      },
+      input: function (value) {
+        console.log('Pressed ', value)
         return value
       }
     }
@@ -23,14 +33,32 @@ module.exports = {
     properties: {
       title: 'lastname',
       tooltip: 'Input your first lastname',
-      value: 'value default'
+      value: 'David'
     },
     events: {
-      onChange: function (value) {
+      change: function (value) {
         console.log('Element lastname changed to ', value)
         return value === ''
       },
-      onClick: function (value) {
+      click: function (value) {
+        console.log('Element lastname clicked ', value)
+        return value
+      }
+    }
+  },
+  description: {
+    type: 'input',
+    properties: {
+      title: 'biografy',
+      tooltip: 'Here your text',
+      placeholder: 'Text'
+    },
+    events: {
+      change: function (value) {
+        console.log('Element lastname changed to ', value)
+        return value === ''
+      },
+      click: function (value) {
         console.log('Element lastname clicked ', value)
         return value
       }
@@ -44,12 +72,12 @@ module.exports = {
       value: ['M', 'F', 'Other']
     },
     events: {
-      onChange: function (value) {
-        console.log('Element lastname changed to ', value)
+      change: function (value) {
+        console.log('Element genre changed to ', value)
         return value === ''
       },
-      onClick: function (value) {
-        console.log('Element lastname clicked ', value)
+      click: function (value) {
+        console.log('Element genre clicked ', value)
         return value
       }
     }

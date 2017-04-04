@@ -3,7 +3,6 @@
 import Vue from 'vue'
 import App from './App'
 import Schema from '../examples/schema'
-console.log('Schema', Schema)
 
 Vue.config.productionTip = false
 
@@ -15,9 +14,7 @@ new Vue({
       schema: Schema
     }
   },
-  mounted () {
-    console.log('Montado ', this.schema)
-  },
+  mounted () {},
   template: '<App :schema="schema"/>',
   components: {
     App
