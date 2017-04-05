@@ -16,19 +16,20 @@ $ yarn add vue-hyper
 Import
 ```js
 import Vue from 'vue'
-import App from 'vue-hyper'
+import VueHyper from 'vue-hyper'
 
-import Schema from '../examples/schema'
+import Schema from './schema'
 
 new Vue({
   el: '#app',
+  name: 'hello',
   data () {
     return {
       schema: Schema
     }
   },
-  template: '<App :schema="schema"/>',
-  components: { App }
+  template: '<VueHyper :schema="schema"/>',
+  components: { VueHyper }
 })
 ```
 
