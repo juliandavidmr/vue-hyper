@@ -20,6 +20,9 @@
     },
     components: {},
     render (h) {
+      if (typeof this.schema === 'string') {
+        this.schema = JSON.parse(this.schema)
+      }
       var childrens = []
       var root = 'div'
       for (var key in this.schema) {

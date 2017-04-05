@@ -14,17 +14,17 @@ module.exports = {
       placeholder: ''
     },
     events: {
-      change: function (value) {
-        console.log('Element changed to ', value)
-        return value === ''
+      change: function (data) {
+        console.log('Element changed to', data.target.value)
       },
-      click: function (value) {
-        console.log('Element clicked ', value)
-        return value
+      click: function (data) {
+        console.log('Element clicked ', data)
       },
-      input: function (value) {
-        console.log('Pressed ', value)
-        return value
+      input: function (data) {
+        console.log('Pressed input', data.target.value)
+      },
+      keypress: function (data) {
+        console.log('Pressed key', data.key, data.keyCode)
       }
     }
   },
@@ -36,13 +36,8 @@ module.exports = {
       value: 'David'
     },
     events: {
-      change: function (value) {
-        console.log('Element lastname changed to ', value)
-        return value === ''
-      },
-      click: function (value) {
-        console.log('Element lastname clicked ', value)
-        return value
+      input: function (data) {
+        console.log('Element changed to', data.target.value)
       }
     }
   },
@@ -54,13 +49,8 @@ module.exports = {
       placeholder: 'Text'
     },
     events: {
-      change: function (value) {
-        console.log('Element lastname changed to ', value)
-        return value === ''
-      },
-      click: function (value) {
-        console.log('Element lastname clicked ', value)
-        return value
+      input: function (data) {
+        console.log('Element changed to', data.target.value)
       }
     }
   },
@@ -73,12 +63,10 @@ module.exports = {
     },
     events: {
       change: function (value) {
-        console.log('Element genre changed to ', value)
-        return value === ''
+        console.log('Element genre changed to ', value.target.value)
       },
       click: function (value) {
         console.log('Element genre clicked ', value)
-        return value
       }
     }
   }
