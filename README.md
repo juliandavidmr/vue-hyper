@@ -16,7 +16,7 @@ $ yarn add vue-hyper
 Import
 ```js
 import Vue from 'vue'
-import App from './App'
+import App from 'vue-hyper'
 
 import Schema from '../examples/schema'
 

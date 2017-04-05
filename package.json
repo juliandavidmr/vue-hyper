@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Prototyping extremely dynamic interfaces. Programming html without directly using html",
   "author": "juliandavidmr <anlijudavid@hotmail.com>",
-  "private": true,
+  "private": false,
+  "main": "./src/main.js",
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",
@@ -83,6 +84,15 @@
     "node": ">= 4.0.0",
     "npm": ">= 3.0.0"
   },
+  "files": [
+    "dist/",
+    "src/",
+    "docs/",
+    "CONTRIBUTING.md",
+    "package.json",
+    "README.md",
+    "LICENSE"
+  ],
   "browserslist": [
     "> 1%",
     "last 2 versions",

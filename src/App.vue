@@ -1,5 +1,6 @@
 <script>
-  export default {
+import Vue from 'vue';
+export default Vue.component('vue-hyper', {  
     name: 'app',
     data () {
       return {
@@ -70,5 +71,10 @@
         }, childrens)
       }
     }
-  }
+})
+// create a root instance
+new Vue({
+  name: 'vue-hyper',
+  el: '#app'
+})
 </script>
