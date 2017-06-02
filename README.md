@@ -1,5 +1,7 @@
 # Vue-hyper
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/juliandavidmr/vue-hyper.svg)](https://greenkeeper.io/)
+
 [![GitHub stars](https://img.shields.io/github/stars/juliandavidmr/vue-hyper.svg?style=social&label=Star)](https://www.github.com/anlijudavid/vue-hyper)
 
 > Prototyping extremely dynamic interfaces. Programming html without directly using html
